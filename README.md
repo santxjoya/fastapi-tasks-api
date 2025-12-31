@@ -31,15 +31,15 @@ El objetivo del proyecto es entregar una solución **end-to-end**, ejecutable en
 Crear un archivo `.env` en la raíz del proyecto:
 
 *env*
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=technical_test
-DB_USER=postgres
-DB_PASSWORD=postgres
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_NAME=technical_test
+    DB_USER=postgres
+    DB_PASSWORD=postgres
 
-JWT_SECRET_KEY=supersecretkey
-JWT_ALGORITHM=HS256
-JWT_EXPIRE_MINUTES=60
+    JWT_SECRET_KEY=supersecretkey
+    JWT_ALGORITHM=HS256
+    JWT_EXPIRE_MINUTES=60
 
 ---
 
@@ -47,7 +47,7 @@ JWT_EXPIRE_MINUTES=60
 
 La base de datos se ejecuta exclusivamente en entorno local usando Docker.
 
-docker-compose up -d
+    docker-compose up -d
 
 ---
 
@@ -55,7 +55,7 @@ docker-compose up -d
 
 Las migraciones se ejecutan con Alembic, y se encargan de crear las tablas necesarias, y crear automáticamente un usuario inicial para autenticación.
 
-alembic upgrade head
+    alembic upgrade head
 
 ---
 
@@ -63,8 +63,8 @@ alembic upgrade head
 
 El sistema crea un usuario inicial automáticamente para poder autenticarse:
 
-Email: admin@test.com
-Password: admin123
+    Email: admin@test.com
+    Password: admin123
 
 ---
 
