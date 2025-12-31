@@ -90,3 +90,59 @@ La lógica de negocio se separa de los endpoints para mejorar mantenibilidad.
 Se implementará paginación real en los listados.
 
 Se utilizará PostgreSQL como base de datos relacional.
+
+# Endpoints principales
+
+# Auth
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| POST | `/auth/login` | Obtener token JWT |
+
+## Tareas
+
+| Método | Ruta | Descripción | Autenticación |
+|--------|------|-------------|---------------|
+| GET | `/tasks/` | Listar tareas con paginación | JWT |
+| POST | `/tasks/` | Crear nueva tarea | JWT |
+| GET | `/tasks/{id}` | Obtener tarea por ID | JWT |
+| PUT | `/tasks/{id}` | Actualizar tarea | JWT |
+| DELETE | `/tasks/{id}` | Eliminar tarea | JWT |
+
+---
+
+# Estructura del proyecto
+
+    app/
+    ├─ api/ # Routers de endpoints
+    ├─ core/ # Configuración y settings
+    ├─ crud/ # Lógica de base de datos
+    ├─ db/ # Sesión y conexión a DB
+    ├─ models/ # Modelos SQLAlchemy
+    ├─ schemas/ # Schemas Pydantic
+    └─ main.py # Inicialización de la app
+
+---
+
+# Obtener token:
+
+    POST "http://127.0.0.1:8000/auth/login" \
+    "Content-Type: application/json" \
+    '{"email": "admin@test.com", "password": "admin123"}'
+
+---
+
+# Crear tarea:
+
+    POST "http://127.0.0.1:8000/tasks/" \
+    "Authorization: Bearer <TOKEN>" \
+    "Content-Type: application/json" \
+    '{"title": "Mi tarea", "description": "Descripción"}'
+
+# Notas finales
+
+Se añadio registro de usuarios.
+
+# Actualizaciones futuras
+
+Reestablecimiento de contraseña por medio de Correo electronico
