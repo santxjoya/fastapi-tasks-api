@@ -30,7 +30,6 @@ El objetivo del proyecto es entregar una solución **end-to-end**, ejecutable en
 
 Crear un archivo `.env` en la raíz del proyecto:
 
-*env*
     DB_HOST=localhost
     DB_PORT=5432
     DB_NAME=technical_test
